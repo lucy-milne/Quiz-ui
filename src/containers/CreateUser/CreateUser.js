@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Form, Button} from 'react-bootstrap';
 
 
-class CreateQuiz extends Component {
+class CreateUser extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,10 +28,26 @@ class CreateQuiz extends Component {
 
     CreateUser() {
         this.setState({passwordMessage: '', nameMessage: ''})
+
+
         if (this.state.password !== this.state.password2) {
             this.setState({passwordMessage: 'Passwords do not match'})
             return null
+        } 
+        else if (this.state.password.length < 5) {
+            this.setState({passwordMessage: 'Password must be at least 5 characters'})
+            return null
         }
+        else if (this.state.username.length < 5) {
+            this.setState({nameMessage: 'Username cannot contain a space'})
+            return null
+        }
+        else if (this.state.password.includes(' ')) {
+            this.setState({nameMessage: 'Username cannot contain a space'})
+            return null
+        }
+
+
             fetch('http://localhost:5000/api/user/createuser', {
                 method: 'POST',
                 body: JSON.stringify({
@@ -81,4 +97,4 @@ class CreateQuiz extends Component {
   }
  
 
-export default CreateQuiz
+export default CreateUser

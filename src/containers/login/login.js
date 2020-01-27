@@ -21,7 +21,6 @@ class Login extends Component {
     }
 
     login() {
-        console.log(this.state.username, this.state.password)
             fetch('http://localhost:5000/api/user/getuser', {
                 method: 'POST',
                 body: JSON.stringify({
