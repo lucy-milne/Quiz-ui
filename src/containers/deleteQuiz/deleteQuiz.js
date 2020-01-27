@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal} from 'react-bootstrap';
+import {checkAuth} from '../../components/User/User'
 
 
 class DeleteQuiz extends Component {
@@ -44,6 +45,10 @@ class DeleteQuiz extends Component {
     }
 
     render () {
+        if (!checkAuth()) {
+            this.props.history.push('../login')
+        }
+
         return (
             <React.Fragment>
                     <Modal show={true}>

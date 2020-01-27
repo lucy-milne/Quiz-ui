@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Quiz from '../../components/Quiz/Quiz'
+import {checkAuth} from '../../components/User/User'
 
 class QuizList extends Component {
     constructor(props) {
@@ -18,6 +19,10 @@ class QuizList extends Component {
 
 
     render () {
+        if (!checkAuth()) {
+            this.props.history.push('./login')
+        }
+        
         return (
             this.state.quizzes.map((quiz => {
                 return (

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Form, Button, Row, Col, Alert} from 'react-bootstrap';
 import './Createquiz.css';
+import {checkAuth} from '../../components/User/User'
 
 
 class CreateQuiz extends Component {
@@ -162,6 +163,9 @@ class CreateQuiz extends Component {
 
 
     render () {
+      if (!checkAuth()) {
+          this.props.history.push('./login')
+      }
       return (
           <React.Fragment>
             <br />

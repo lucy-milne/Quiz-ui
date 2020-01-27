@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Form, Button} from 'react-bootstrap';
+import {login} from '../../components/User/User';
+
 
 
 class Login extends Component {
@@ -19,27 +21,30 @@ class Login extends Component {
     updatePassword = (event) => {
         this.setState({password: event.target.value})
     }
-
-    login() {
-            fetch('http://localhost:5000/api/user/getuser', {
-                method: 'POST',
-                body: JSON.stringify({
-                    Id: this.state.username,
-                    Password: this.state.password
-                }),
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                     this.props.history.push('/quizList')
-                } else {
-                    this.setState({message: 'Username or password incorrect'})
-                }
-            })           
+    
+    
+    loginClicked() {
+        fetch('http://localhost:5000/api/user/getuser', {
+            method: 'POST',
+            body: JSON.stringify({
+                Id: this.state.username,
+                Password: this.state.password
+            }),
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then (response => {
+            if (response.ok) {
+                login()
+                this.props.history.push('./quizlist')
+            }
+            else {
+                this.setState({message: 'Username or password incorrect'})
+            }
+        })
     }
+
 
     render () {
       return (
@@ -59,7 +64,7 @@ class Login extends Component {
                 <Form.Text className="text-danger"> {this.state.message} </Form.Text>
             </Form.Group>
 
-            <Button variant="info" onClick={() => this.login()}> Login </Button>
+            <Button variant="info" onClick={() => this.loginClicked()}> Login </Button>
         </Form>
       )
     }

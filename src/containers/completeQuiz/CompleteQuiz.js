@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Question from './Question';
 import { Button, Modal} from 'react-bootstrap';
 import './completeQuiz.css';
+import {checkAuth} from '../../components/User/User'
 
 
 
@@ -53,7 +54,10 @@ class CompleteQuiz extends Component {
     }
 
     render() {
-        
+        if (!checkAuth()) {
+            this.props.history.push('../login')
+        }
+
         if (this.state.data.length > 0) {
             let questions = this.state.data.map((question => {
                 let answers = [question.correctAnswer, question.wrongAnswer1, question.wrongAnswer2, question.wrongAnswer3]
