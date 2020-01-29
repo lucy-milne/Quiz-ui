@@ -1,7 +1,6 @@
 import React from 'react';
 import CompleteQuiz from './completeQuiz/CompleteQuiz';
 import DeleteQuiz from './deleteQuiz/deleteQuiz'
-import Layout from '../components/Layout/Layout';
 import QuizList from './QuizList/QuizList';
 import CreateQuiz from './CreateQuiz/CreateQuiz';
 import Login from './users/login/login';
