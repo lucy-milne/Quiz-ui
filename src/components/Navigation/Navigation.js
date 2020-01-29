@@ -22,7 +22,7 @@ const navigation = () => {
         <Col>
             <Navbar bg='info'>
                 <Navbar.Brand> Quiz </Navbar.Brand>
-                <Button className='right' variant="light" href="../createuser"> Create User </Button>
+                <Button className='right' variant="outline-light" href="../createuser"> Create User </Button>
             </Navbar>
         </Col>
     )
