@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Layout from '../../components/Layout/Layout';
 import { Button, Modal} from 'react-bootstrap';
+import {checkAuth} from '../../components/UserAuth'
 
 
 class DeleteQuiz extends Component {
@@ -44,8 +46,12 @@ class DeleteQuiz extends Component {
     }
 
     render () {
+        if (!checkAuth()) {
+            this.props.history.push('../login')
+        }
+
         return (
-            <React.Fragment>
+            <Layout>
                     <Modal show={true}>
                     <Modal.Header>
                         <Modal.Title> Are you sure? </Modal.Title>
@@ -55,7 +61,7 @@ class DeleteQuiz extends Component {
                         <Button variant="secondary" onClick={() => this.cancelDelete()}> Cancel </Button>
                     </Modal.Footer>
                 </Modal>
-            </React.Fragment>
+            </Layout>
         )
     }
 }

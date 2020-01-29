@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import Question from './Question';
-import { Button, Modal} from 'react-bootstrap';
 import './completeQuiz.css';
+import Question from './Question';
+import Layout from '../../components/Layout/Layout';
+import { Button, Modal} from 'react-bootstrap';
+import {checkAuth} from '../../components/UserAuth'
 
 
 
@@ -53,7 +55,10 @@ class CompleteQuiz extends Component {
     }
 
     render() {
-        
+        if (!checkAuth()) {
+            this.props.history.push('../login')
+        }
+
         if (this.state.data.length > 0) {
             let questions = this.state.data.map((question => {
                 let answers = [question.correctAnswer, question.wrongAnswer1, question.wrongAnswer2, question.wrongAnswer3]
@@ -65,7 +70,7 @@ class CompleteQuiz extends Component {
             }))
             
             return ( 
-                <React.Fragment>
+                <Layout>
                     <div>{questions[this.state.i]}</div> 
 
                     <Modal show={this.state.show} >
@@ -78,7 +83,7 @@ class CompleteQuiz extends Component {
                         </Modal.Footer>
                     </Modal>  
                     
-                </React.Fragment>
+                </Layout>
             )        
         }
         else {

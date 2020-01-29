@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {Form, Button, Row, Col, Alert} from 'react-bootstrap';
 import './Createquiz.css';
+import Layout from '../../components/Layout/Layout';
+import {Form, Button, Row, Col, Alert} from 'react-bootstrap';
+import {checkAuth} from '../../components/UserAuth'
 
 
 class CreateQuiz extends Component {
@@ -162,8 +164,11 @@ class CreateQuiz extends Component {
 
 
     render () {
+      if (!checkAuth()) {
+          this.props.history.push('./login')
+      }
       return (
-          <React.Fragment>
+          <Layout>
             <br />
             <Form>
               <Form.Group controlId="name">
@@ -215,7 +220,7 @@ class CreateQuiz extends Component {
               </Row>
             </Form>
             <br />
-          </React.Fragment>
+          </Layout>
       )
     }
   }
