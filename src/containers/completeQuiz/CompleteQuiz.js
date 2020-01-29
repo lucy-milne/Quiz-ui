@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Question from './Question';
-import { Button, Modal} from 'react-bootstrap';
 import './completeQuiz.css';
-import {checkAuth} from '../../components/User/User'
+import Question from './Question';
+import Layout from '../../components/Layout/Layout';
+import { Button, Modal} from 'react-bootstrap';
+import {checkAuth} from '../../components/UserAuth'
 
 
 
@@ -69,7 +70,7 @@ class CompleteQuiz extends Component {
             }))
             
             return ( 
-                <React.Fragment>
+                <Layout>
                     <div>{questions[this.state.i]}</div> 
 
                     <Modal show={this.state.show} >
@@ -82,7 +83,7 @@ class CompleteQuiz extends Component {
                         </Modal.Footer>
                     </Modal>  
                     
-                </React.Fragment>
+                </Layout>
             )        
         }
         else {

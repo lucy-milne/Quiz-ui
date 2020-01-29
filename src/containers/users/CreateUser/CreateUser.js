@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Layout from '../../../components/Layout/Layout';
 import {Form, Button} from 'react-bootstrap';
 
 
@@ -70,28 +71,30 @@ class CreateUser extends Component {
 
     render () {
       return (
-        <Form>
-            <br />
-            {/* <Form.Title> Create a User </Form.Title>   TODO: add title */}
+        <Layout>
+            <Form>
+                <br />
+                {/* <Form.Title> Create a User </Form.Title>   TODO: add title */}
 
-            <Form.Group controlId="formUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control placeholder="Enter username" onChange={(event) => this.updateUserName(event)}/>
-                <Form.Text className="text-danger"> {this.state.nameMessage} </Form.Text>
-            </Form.Group>
-        
-            <Form.Group controlId="formBasicPassword1">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" onChange={(event) => this.updatePassword(event)} />   
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword2">
-                <Form.Label>Repeat password</Form.Label>
-                <Form.Control type="password" placeholder="Password" onChange={(event) => this.updatePassword2(event)} />
-                <Form.Text className="text-danger"> {this.state.passwordMessage} </Form.Text>
-            </Form.Group>
+                <Form.Group controlId="formUsername">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control placeholder="Enter username" onChange={(event) => this.updateUserName(event)}/>
+                    <Form.Text className="text-danger"> {this.state.nameMessage} </Form.Text>
+                </Form.Group>
+            
+                <Form.Group controlId="formBasicPassword1">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" onChange={(event) => this.updatePassword(event)} />   
+                </Form.Group>
+                <Form.Group controlId="formBasicPassword2">
+                    <Form.Label>Repeat password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" onChange={(event) => this.updatePassword2(event)} />
+                    <Form.Text className="text-danger"> {this.state.passwordMessage} </Form.Text>
+                </Form.Group>
 
-            <Button variant="info" onClick={() => this.CreateUser()}> Create </Button>
-        </Form>
+                <Button variant="info" onClick={() => this.CreateUser()}> Create </Button>
+            </Form>
+        </Layout>
       )
     }
   }

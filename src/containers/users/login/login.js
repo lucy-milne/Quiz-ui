@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Layout from '../../../components/Layout/Layout';
 import {Form, Button} from 'react-bootstrap';
-import {login} from '../../../components/User/User';
+import {login} from '../../../components/UserAuth';
 
 
 
@@ -36,7 +37,7 @@ class Login extends Component {
             }
         }).then (response => {
             if (response.ok) {
-                localStorage.setItem('token', 'user');
+                login()
                 this.props.history.push('./quizlist')
             }
             else {
@@ -48,24 +49,26 @@ class Login extends Component {
 
     render () {
       return (
-        <Form>
-            <br />
-            {/* <Form.Title> Create a User </Form.Title>   TODO: add title */}
+          <Layout>
+            <Form>
+                <br />
+                {/* <Form.Title> Create a User </Form.Title>   TODO: add title */}
 
-            <Form.Group controlId="formUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control placeholder="Enter username" onChange={(event) => this.updateUserName(event)}/>
-                <Form.Text className="text-danger"> {this.state.message} </Form.Text>
-            </Form.Group>
-        
-            <Form.Group controlId="formBasicPassword1">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" onChange={(event) => this.updatePassword(event)} />   
-                <Form.Text className="text-danger"> {this.state.message} </Form.Text>
-            </Form.Group>
+                <Form.Group controlId="formUsername">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control placeholder="Enter username" onChange={(event) => this.updateUserName(event)}/>
+                    <Form.Text className="text-danger"> {this.state.message} </Form.Text>
+                </Form.Group>
+            
+                <Form.Group controlId="formBasicPassword1">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" onChange={(event) => this.updatePassword(event)} />   
+                    <Form.Text className="text-danger"> {this.state.message} </Form.Text>
+                </Form.Group>
 
-            <Button variant="info" onClick={() => this.loginClicked()}> Login </Button>
-        </Form>
+                <Button variant="info" onClick={() => this.loginClicked()}> Login </Button>
+            </Form>
+        </Layout>
       )
     }
   }

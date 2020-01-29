@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Col, Nav, Button} from 'react-bootstrap';
-import {checkAuth, logout} from '../User/User'
+import {checkAuth, logout} from '../UserAuth';
 
 const navigation = () => {
     if (checkAuth()) {
@@ -12,7 +12,7 @@ const navigation = () => {
                         <Nav.Link href="../quizList">Take a quiz</Nav.Link>
                         <Nav.Link href="../createQuiz">Create a quiz</Nav.Link>     
                     </Nav>
-                        <Button onClick={localStorage.removeItem('token')} href="../login">Logout</Button>
+                        <Button onClick={() => logout()} href="../login">Logout</Button>
                 </Navbar>
             </Col>
         )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Quiz from '../../components/Quiz/Quiz'
-import {checkAuth} from '../../components/User/User'
+import Layout from '../../components/Layout/Layout';
+import {checkAuth} from '../../components/UserAuth'
 
 class QuizList extends Component {
     constructor(props) {
@@ -17,12 +18,7 @@ class QuizList extends Component {
         .then(data => this.setState({quizzes: data}));
     }
 
-
-    render () {
-        if (!checkAuth()) {
-            this.props.history.push('./login')
-        }
-        
+    allQuizzes() {
         return (
             this.state.quizzes.map((quiz => {
                 return (
@@ -33,6 +29,18 @@ class QuizList extends Component {
                     </React.Fragment>
                 )
             }))
+        )
+    }
+
+    render () {
+        if (!checkAuth()) {
+            this.props.history.push('./login')
+        }
+        
+        return (
+            <Layout>
+                {this.allQuizzes()}
+            </Layout>
         )
     }
 }
