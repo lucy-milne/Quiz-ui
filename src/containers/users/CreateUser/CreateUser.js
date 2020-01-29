@@ -93,6 +93,8 @@ class CreateUser extends Component {
                 </Form.Group>
 
                 <Button variant="info" onClick={() => this.CreateUser()}> Create </Button>
+                <span>&nbsp;&nbsp;&nbsp;</span>
+                <Button variant="danger" onClick={() => this.props.history.push('./login')}> Cancel </Button>
             </Form>
         </Layout>
       )

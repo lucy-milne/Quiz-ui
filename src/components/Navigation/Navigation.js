@@ -13,7 +13,7 @@ const navigation = () => {
                         <Nav.Link href="../quizList">Take a quiz</Nav.Link>
                         <Nav.Link href="../createQuiz">Create a quiz</Nav.Link>     
                     </Nav>
-                        <Button className='logout' onClick={() => logout()} variant="outline-light" href="../login">Logout</Button>
+                        <Button className='right' onClick={() => logout()} variant="outline-light" href="../login">Logout</Button>
                 </Navbar>
             </Col>
         )
@@ -22,6 +22,7 @@ const navigation = () => {
         <Col>
             <Navbar bg='info'>
                 <Navbar.Brand> Quiz </Navbar.Brand>
+                <Button className='right' variant="light" href="../createuser"> Create User </Button>
             </Navbar>
         </Col>
     )

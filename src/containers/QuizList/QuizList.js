@@ -40,6 +40,7 @@ class QuizList extends Component {
         return (
             <Layout>
                 {this.allQuizzes()}
+                <br/>
             </Layout>
         )
     }
