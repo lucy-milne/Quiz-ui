@@ -1,5 +1,5 @@
 import React from 'react';
-import './Navigation.css'
+import './Navigation.css';
 import { Navbar, Col, Nav, Button} from 'react-bootstrap';
 import {checkAuth, logout} from '../UserAuth';
 
