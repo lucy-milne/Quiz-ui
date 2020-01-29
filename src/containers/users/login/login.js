@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Form, Button} from 'react-bootstrap';
-import {login} from '../../components/User/User';
+import {login} from '../../../components/User/User';
 
 
 
@@ -23,7 +23,7 @@ class Login extends Component {
     }
     
     
-    loginClicked() {
+    async loginClicked() {
         fetch('http://localhost:5000/api/user/getuser', {
             method: 'POST',
             body: JSON.stringify({
@@ -36,7 +36,7 @@ class Login extends Component {
             }
         }).then (response => {
             if (response.ok) {
-                login()
+                localStorage.setItem('token', 'user');
                 this.props.history.push('./quizlist')
             }
             else {
