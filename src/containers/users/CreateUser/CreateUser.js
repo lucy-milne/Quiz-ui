@@ -44,7 +44,7 @@ class CreateUser extends Component {
             return null
         }
         else if (this.state.password.includes(' ')) {
-            this.setState({nameMessage: 'Username cannot contain a space'})
+            this.setState({passwordMessage: 'Password cannot contain a space'})
             return null
         }
 
