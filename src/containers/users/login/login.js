@@ -37,7 +37,7 @@ class Login extends Component {
             }
         }).then (response => {
             if (response.ok) {
-                login()
+                login(this.state.username)
                 this.props.history.push('./quizlist')
             }
             else {

@@ -1,31 +1,66 @@
 import React, { Component } from 'react';
 import Quiz from '../../components/Quiz/Quiz'
 import Layout from '../../components/Layout/Layout';
-import {checkAuth} from '../../components/UserAuth'
+import {checkAuth, getUser} from '../../components/UserAuth'
 
 class QuizList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-              quizzes: [],
+              otherQuizzes: [],
+              userQuizzes: []
         };
     }
 
     
     componentDidMount() {
-        fetch('http://localhost:5000/api/quiz')
+        fetch('http://localhost:5000/api/quiz/otherQuizzes', 
+        {
+            method: 'POST',
+            body: JSON.stringify({Id: getUser()}),
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
         .then(res => res.json())
-        .then(data => this.setState({quizzes: data}));
+        .then(data => this.setState({otherQuizzes: data}));
+
+        fetch('http://localhost:5000/api/quiz/usersQuizzes', 
+            {
+                method: 'POST',
+                body: JSON.stringify({Id: getUser()}),
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+        .then(res => res.json())
+        .then(data => this.setState({userQuizzes: data}));
     }
 
-    allQuizzes() {
+    otherQuizzes() {
         return (
-            this.state.quizzes.map((quiz => {
+            this.state.otherQuizzes.map((quiz => {
                 return (
                     <React.Fragment key={quiz.id}>
                         <br />
                         <br />
-                        <Quiz quiz={quiz} {...this.props}></Quiz>
+                        <Quiz quiz={quiz} delete={false} {...this.props}></Quiz>
+                    </React.Fragment>
+                )
+            }))
+        )
+    }
+
+    userQuizzes() {
+        return (
+            this.state.userQuizzes.map((quiz => {
+                return (
+                    <React.Fragment key={quiz.id}>
+                        <br />
+                        <br />
+                        <Quiz quiz={quiz} delete={true} {...this.props}></Quiz>
                     </React.Fragment>
                 )
             }))
@@ -39,7 +74,8 @@ class QuizList extends Component {
         
         return (
             <Layout>
-                {this.allQuizzes()}
+                {this.otherQuizzes()}
+                {this.userQuizzes()} 
                 <br/>
             </Layout>
         )

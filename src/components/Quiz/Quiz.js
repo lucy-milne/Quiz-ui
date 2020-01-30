@@ -11,16 +11,18 @@ const redirectToDelete = (id, props) => {
 
 
 const quiz = (props) => {
+    console.log(props.quiz)
     return (
         <Card>
             <Card.Body>
                 <Container>
                     <Row>
                         <Col> {props.quiz.name} </Col>
+                        <Col> {props.quiz.username} </Col>
                         <Col>
                             <Button variant="info" onClick={() => redirectToQuiz(props.quiz.id, props)}> Take Quiz </Button>
                             <span>&nbsp;&nbsp;&nbsp;</span>
-                            <Button variant="danger" onClick={() => redirectToDelete(props.quiz.id, props)}>Delete</Button>
+                            <Button variant="danger" onClick={() => redirectToDelete(props.quiz.id, props)} disabled={props.delete}>Delete </Button>
                         </Col>
                     </Row>
                 </Container>
