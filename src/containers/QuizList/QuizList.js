@@ -74,8 +74,8 @@ class QuizList extends Component {
         
         return (
             <Layout>
-                {this.otherQuizzes()}
                 {this.userQuizzes()} 
+                {this.otherQuizzes()} 
                 <br/>
             </Layout>
         )

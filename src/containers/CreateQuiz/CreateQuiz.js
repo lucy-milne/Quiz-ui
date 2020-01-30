@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Createquiz.css';
 import Layout from '../../components/Layout/Layout';
 import {Form, Button, Row, Col, Alert} from 'react-bootstrap';
-import {checkAuth} from '../../components/UserAuth'
+import {checkAuth, getUser} from '../../components/UserAuth'
 
 
 class CreateQuiz extends Component {
@@ -86,7 +86,8 @@ class CreateQuiz extends Component {
         const res = await fetch('http://localhost:5000/api/quiz/', {
             method: 'POST',
             body: JSON.stringify({
-                name: this.state.name
+                name: this.state.name,
+                username: getUser()
             }),
             headers: {
                 Accept: 'application/json',
