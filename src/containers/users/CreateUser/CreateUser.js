@@ -72,6 +72,8 @@ class CreateUser extends Component {
     render () {
       return (
         <Layout>
+            <br />
+            <h3> Create User </h3>
             <Form>
                 <br />
                 {/* <Form.Title> Create a User </Form.Title>   TODO: add title */}

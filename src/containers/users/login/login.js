@@ -50,10 +50,10 @@ class Login extends Component {
     render () {
       return (
           <Layout>
+            <br />
+            <h3> Login </h3>
             <Form>
                 <br />
-                {/* <Form.Title> Create a User </Form.Title>   TODO: add title */}
-
                 <Form.Group controlId="formUsername">
                     <Form.Label>Username</Form.Label>
                     <Form.Control placeholder="Enter username" onChange={(event) => this.updateUserName(event)}/>

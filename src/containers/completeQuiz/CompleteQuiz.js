@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Question from './Question';
 import Layout from '../../components/Layout/Layout';
 import { Button, Modal} from 'react-bootstrap';
-import {checkAuth} from '../../components/UserAuth'
+import {checkAuth} from '../../components/UserAuth';
 
 
 
@@ -87,7 +87,7 @@ class CompleteQuiz extends Component {
         }
         else {
             return (
-                <div></div>
+                <Layout></Layout>
             )
         }
     }

@@ -16,7 +16,7 @@ const quiz = (props) => {
             <Card.Body>
                 <Container>
                     <Row>
-                        <Col style={{fontSize: "22px"}} > {props.quiz.name} </Col>
+                        <Col> <b>{props.quiz.name}</b> </Col>
                         <Col> {props.quiz.username} </Col>
                         <Col>
                             <Button variant="info" onClick={() => redirectToQuiz(props.quiz.id, props)}> Take Quiz </Button>
