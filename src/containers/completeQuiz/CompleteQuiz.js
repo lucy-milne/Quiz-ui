@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './completeQuiz.css';
 import Question from './Question';
 import Layout from '../../components/Layout/Layout';
 import { Button, Modal} from 'react-bootstrap';
