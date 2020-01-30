@@ -13,7 +13,8 @@ class CompleteQuiz extends Component {
               data: [],
               score: 0,
               show: false,
-              i: 0
+              i: 0,
+              exists: true
         };
     }
 
@@ -45,12 +46,14 @@ class CompleteQuiz extends Component {
         this.props.history.push('/quizList');
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         let id = this.props.match.params.id;
-        fetch('http://localhost:5000/api/question/' + id)
-        .then(res => res.json())
-        .then(body => this.setState({data: body})
-        )
+        const res = await fetch('http://localhost:5000/api/question/' + id)
+        if (!res.ok) {
+            this.setState({exists: false})
+        }
+        const body = await res.json()
+        this.setState({data: body})
     }
 
     render() {
@@ -58,38 +61,46 @@ class CompleteQuiz extends Component {
             this.props.history.push('../login')
         }
 
-        if (this.state.data.length > 0) {
-            let questions = this.state.data.map((question => {
-                let answers = [question.correctAnswer, question.wrongAnswer1, question.wrongAnswer2, question.wrongAnswer3]
-                this.shuffle(answers)
-                return (
-                    <Question key={question.id} question={question.question} answer={question.correctAnswer} 
-                    allAnswers={answers} answered={this.answered} />
-                )
-            }))
-            
+        if (!this.state.exists) {
             return ( 
-                <Layout>
-                    <div>{questions[this.state.i]}</div> 
-
-                    <Modal show={this.state.show} >
-                        <Modal.Header>
-                            <Modal.Title> Congratulations! </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body >You got {this.state.score} / {this.state.data.length} </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={() => this.closeQuiz()}> Close </Button>
-                        </Modal.Footer>
-                    </Modal>  
-                    
-                </Layout>
-            )        
-        }
-        else {
-            return (
-                <Layout></Layout>
+            <Layout>             
+                <Modal show={true}>
+                    <Modal.Header>
+                        <Modal.Title> Quiz does not exist</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={() => this.closeQuiz()}> Close </Button>
+                    </Modal.Footer>
+                </Modal>  
+            </Layout>   
             )
         }
+
+        let questions = this.state.data.map((question => {
+            let answers = [question.correctAnswer, question.wrongAnswer1, question.wrongAnswer2, question.wrongAnswer3]
+            this.shuffle(answers)
+            return (
+                <Question key={question.id} question={question.question} answer={question.correctAnswer} 
+                allAnswers={answers} answered={this.answered} />
+            )
+        }))
+        
+        return ( 
+            <Layout>
+                <div>{questions[this.state.i]}</div> 
+
+                <Modal show={this.state.show} >
+                    <Modal.Header>
+                        <Modal.Title> Congratulations! </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body >You got {this.state.score} / {this.state.data.length} </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={() => this.closeQuiz()}> Ok </Button>
+                    </Modal.Footer>
+                </Modal>  
+                
+            </Layout>
+        )        
     }
 }
 
