@@ -9,6 +9,12 @@ const redirectToDelete = (id, props) => {
     props.history.push('/deleteQuiz/' + id);
 }
 
+const checkDelete = (props) => {
+    if (props.delete) {
+        return ''
+    }
+    return 'none'
+}
 
 const quiz = (props) => {
     return (
@@ -21,7 +27,7 @@ const quiz = (props) => {
                         <Col>
                             <Button variant="info" onClick={() => redirectToQuiz(props.quiz.id, props)}> Take Quiz </Button>
                             <span>&nbsp;&nbsp;&nbsp;</span>
-                            <Button variant="danger" onClick={() => redirectToDelete(props.quiz.id, props)} disabled={!props.delete}>Delete </Button>
+                            <Button variant="danger" onClick={() => redirectToDelete(props.quiz.id, props)} style={{display: checkDelete(props)}}>Delete </Button>
                         </Col>
                     </Row>
                 </Container>
