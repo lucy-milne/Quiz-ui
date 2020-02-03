@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Question from './Question';
 import Layout from '../../components/Layout/Layout';
-import { Button, Modal} from 'react-bootstrap';
+import { Button, Modal, Container, Image} from 'react-bootstrap';
 import {checkAuth} from '../../components/UserAuth';
 
 
@@ -14,7 +14,8 @@ class CompleteQuiz extends Component {
               score: 0,
               show: false,
               i: 0,
-              exists: true
+              exists: true,
+              image: ''
         };
     }
 
@@ -54,6 +55,10 @@ class CompleteQuiz extends Component {
         }
         const body = await res.json()
         this.setState({data: body})
+
+        fetch('https://dog.ceo/api/breeds/image/random')
+        .then(res => res.json())
+        .then(json => this.setState({image: json.message}))
     }
 
     render() {
@@ -93,7 +98,12 @@ class CompleteQuiz extends Component {
                     <Modal.Header>
                         <Modal.Title> Congratulations! </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body >You got {this.state.score} / {this.state.data.length} </Modal.Body>
+                    <Modal.Body style={{'textAlign' : 'center'}}>
+                        <h4>You got {this.state.score} / {this.state.data.length}</h4>
+                        <Container>
+                            <Image src={this.state.image} rounded style={{'height': '200px'}}/>
+                        </Container>
+                        </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={() => this.closeQuiz()}> Ok </Button>
                     </Modal.Footer>

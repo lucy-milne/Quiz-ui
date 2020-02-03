@@ -11,7 +11,7 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            message: '',
+            message: ''
         }
     }
 
