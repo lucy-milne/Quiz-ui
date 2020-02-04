@@ -1,6 +1,5 @@
 import React from 'react';
-import './Navigation.css';
-import { Navbar, Col, Nav, Button} from 'react-bootstrap';
+import { Navbar, Nav, Button} from 'react-bootstrap';
 import {checkAuth, logout} from '../UserAuth';
 import 'startbootstrap-sb-admin-2/css/sb-admin-2.css';
 
@@ -22,11 +21,10 @@ const navigation = () => {
                 <hr className="sidebar-divider d-none d-md-block"/>
 
                 <div className="text-center d-none d-md-inline">
-                    <Button className="rounded-circle border-0" id="sidebarToggle" onClick={() => logout()} href="../login" />
+                    <Button className="rounded-circle border-0" id="sidebarToggle" onClick={() => logout()} href="../login">
+                        <i/> 
+                    </Button>
                 </div>
-
-                
-                <i className=" fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
             </ul>
 
         )
