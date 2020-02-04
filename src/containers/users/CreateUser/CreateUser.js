@@ -96,8 +96,7 @@ s
                 <Row>
                     <span>&nbsp;&nbsp;&nbsp;</span>
                     <Button className='btn btn-primary btn-icon-split col-xl-2' onClick={() => this.CreateUser()}> Create </Button>
-                    <span>&nbsp;&nbsp;&nbsp;</span>
-                    <Button className='btn btn-danger btn-icon-split col-xl-2' onClick={() => this.props.history.push('./login')}> Cancel </Button>
+
                 </Row>
                 <br />
             </Card>
