@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Layout from '../../../components/Layout/Layout';
-import {Form, Button} from 'react-bootstrap';
+import {Form, Button, Card, Col} from 'react-bootstrap';
 
 
 class CreateUser extends Component {
@@ -22,7 +22,7 @@ class CreateUser extends Component {
     updatePassword = (event) => {
         this.setState({password: event.target.value})
     }
-
+s
     updatePassword2 = (event) => {
         this.setState({password2: event.target.value})
     }
@@ -73,10 +73,9 @@ class CreateUser extends Component {
       return (
         <Layout>
             <br />
-            <h3> Create User </h3>
-            <Form>
+            <Card className='card border-left-info shadow py-2 col-xl-8 offset-2'>
+                <h2 className='h2 mb-0 text-gray-800'> Create User </h2>
                 <br />
-                {/* <Form.Title> Create a User </Form.Title>   TODO: add title */}
 
                 <Form.Group controlId="formUsername">
                     <Form.Label>Username</Form.Label>
@@ -93,11 +92,13 @@ class CreateUser extends Component {
                     <Form.Control type="password" placeholder="Password" onChange={(event) => this.updatePassword2(event)} />
                     <Form.Text className="text-danger"> {this.state.passwordMessage} </Form.Text>
                 </Form.Group>
-
-                <Button variant="info" onClick={() => this.CreateUser()}> Create </Button>
-                <span>&nbsp;&nbsp;&nbsp;</span>
-                <Button variant="danger" onClick={() => this.props.history.push('./login')}> Cancel </Button>
-            </Form>
+                <Col>
+                    <Button variant="info" onClick={() => this.CreateUser()}> Create </Button>
+                    <span>&nbsp;&nbsp;&nbsp;</span>
+                    <Button variant="danger" onClick={() => this.props.history.push('./login')}> Cancel </Button>
+                </Col>
+                <br />
+            </Card>
         </Layout>
       )
     }

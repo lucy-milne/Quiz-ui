@@ -1,17 +1,14 @@
 import React from "react";
-import {Container, Row, Col} from "react-bootstrap";
 import Navigation from '../Navigation/Navigation';
 
 const layout = (props) => {
     return (
-        <Col>
-            <Row>
-                <Navigation />
-            </Row>
-            <Container>
+        <div id="wrapper">
+            <Navigation />
+            <div className="container-fluid">
                 {props.children}
-            </Container>
-        </Col>
+            </div>
+        </div>
     )
 }
 

@@ -3,6 +3,7 @@ import Question from './Question';
 import Layout from '../../components/Layout/Layout';
 import { Button, Modal, Container, Image} from 'react-bootstrap';
 import {checkAuth} from '../../components/UserAuth';
+import 'startbootstrap-sb-admin-2/css/sb-admin-2.css';
 
 
 
