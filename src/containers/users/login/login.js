@@ -68,7 +68,7 @@ class Login extends Component {
                     <Form.Control type="password" placeholder="Password" onChange={(event) => this.updatePassword(event)} />   
                     <Form.Text className="text-danger"> {this.state.message} </Form.Text>
                 </Form.Group>
-                <Button className='btn btn-primary btn-icon-split col-xl-2 center' variant="info" onClick={() => this.loginClicked()}> Login </Button>
+                <Button className='btn btn-primary btn-icon-split col-xl-2' onClick={() => this.loginClicked()}> Login </Button>
                 <br/>
             </Card>
         </Layout>
