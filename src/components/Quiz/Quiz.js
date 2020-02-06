@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, Container, Row, Col, Button} from 'react-bootstrap';
 import 'startbootstrap-sb-admin-2/css/sb-admin-2.css';
+import { IoMdPlay, IoIosTrash } from "react-icons/io";
 
 const redirectToQuiz = (id, props) => {
     props.history.push('/completeQuiz/' + id);
@@ -26,9 +27,9 @@ const quiz = (props) => {
                         <Col> <b>{props.quiz.name}</b> </Col>
                         <Col> {props.quiz.username} </Col>
                         <Col>
-                            <button className='btn btn-primary' onClick={() => redirectToQuiz(props.quiz.id, props)}> Take Quiz </button>
+                            <Button className='btn btn-primary' onClick={() => redirectToQuiz(props.quiz.id, props)}> <IoMdPlay size={25} style={{color: '#fff'}}/></Button>
                             <span>&nbsp;&nbsp;&nbsp;</span>
-                            <button className="btn btn-danger" onClick={() => redirectToDelete(props.quiz.id, props)} style={{display: checkDelete(props)}}>Delete</button>
+                            <Button className="btn btn-danger" onClick={() => redirectToDelete(props.quiz.id, props)} style={{display: checkDelete(props)}}><IoIosTrash size={25} style={{color: '#fff'}}/></Button>
                         </Col>
                     </Row>
                 </Container>
