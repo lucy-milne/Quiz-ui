@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Createquiz.css';
 import Layout from '../../components/Layout/Layout';
-import {Form, Button, Row, Col, Alert} from 'react-bootstrap';
+import {Form, Button, Row, Col, Alert, Card} from 'react-bootstrap';
 import {checkAuth, getUser} from '../../components/UserAuth'
 
 
@@ -171,7 +171,8 @@ class CreateQuiz extends Component {
       return (
           <Layout>
             <br />
-            <Form>
+            <Card className='card border-left-info shadow py-2 col-xl-8 offset-2'>
+              <br />
               <Form.Group controlId="name">
                 <Form.Label > Quiz Name </Form.Label>
                 <Form.Control placeholder="Quiz Name"  value={this.state.name} onChange={(event) => this.updateName(event)}/>
@@ -219,8 +220,8 @@ class CreateQuiz extends Component {
                   <Button variant='danger' onClick={() => this.cancel()}> Cancel </Button>
                 </Col>
               </Row>
-            </Form>
-            <br />
+              <br />
+            </Card>
           </Layout>
       )
     }

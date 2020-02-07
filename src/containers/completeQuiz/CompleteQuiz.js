@@ -3,6 +3,7 @@ import Question from './Question';
 import Layout from '../../components/Layout/Layout';
 import { Button, Modal, Container, Image} from 'react-bootstrap';
 import {checkAuth} from '../../components/UserAuth';
+import 'startbootstrap-sb-admin-2/css/sb-admin-2.css';
 
 
 
@@ -48,6 +49,10 @@ class CompleteQuiz extends Component {
     }
 
     async componentDidMount() {
+        const result = await fetch('https://dog.ceo/api/breeds/image/random')
+        const data = await result.json()
+        this.setState({image: data.message})
+
         let id = this.props.match.params.id;
         const res = await fetch('http://localhost:5000/api/question/' + id)
         if (!res.ok) {
@@ -56,9 +61,6 @@ class CompleteQuiz extends Component {
         const body = await res.json()
         this.setState({data: body})
 
-        fetch('https://dog.ceo/api/breeds/image/random')
-        .then(res => res.json())
-        .then(json => this.setState({image: json.message}))
     }
 
     render() {

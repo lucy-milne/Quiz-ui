@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Quiz from '../../components/Quiz/Quiz'
 import Layout from '../../components/Layout/Layout';
-import {checkAuth, getUser} from '../../components/UserAuth'
+import {checkAuth, getUser} from '../../components/UserAuth';
+import 'startbootstrap-sb-admin-2/css/sb-admin-2.css';
 
 class QuizList extends Component {
     constructor(props) {
@@ -45,7 +46,6 @@ class QuizList extends Component {
                 return (
                     <React.Fragment key={quiz.id}>
                         <br />
-                        <br />
                         <Quiz quiz={quiz} delete={false} {...this.props}></Quiz>
                     </React.Fragment>
                 )
@@ -58,7 +58,6 @@ class QuizList extends Component {
             this.state.userQuizzes.map((quiz => {
                 return (
                     <React.Fragment key={quiz.id}>
-                        <br />
                         <br />
                         <Quiz quiz={quiz} delete={true} {...this.props}></Quiz>
                     </React.Fragment>

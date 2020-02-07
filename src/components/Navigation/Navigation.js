@@ -1,30 +1,62 @@
 import React from 'react';
-import './Navigation.css';
-import { Navbar, Col, Nav, Button} from 'react-bootstrap';
+import { Navbar, Nav} from 'react-bootstrap';
 import {checkAuth, logout} from '../UserAuth';
+import 'startbootstrap-sb-admin-2/css/sb-admin-2.css';
+import { IoIosLogOut } from "react-icons/io";
 
 const navigation = () => {
     if (checkAuth()) {
-        return (
-            <Col>
-                <Navbar bg='info'>
-                    <Navbar.Brand> Quiz </Navbar.Brand>
-                    <Nav>
-                        <Nav.Link href="../quizList">Take a quiz</Nav.Link>
-                        <Nav.Link href="../createQuiz">Create a quiz</Nav.Link>     
-                    </Nav>
-                        <Button className='right' onClick={() => logout()} variant="outline-light" href="../login">Logout</Button>
-                </Navbar>
-            </Col>
+        return (   
+            <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled">
+                <li className="nav-item">
+                    <div className="sidebar-brand d-flex align-items-center justify-content-center"> Quiz </div>
+                </li>
+                
+                <hr className="sidebar-divider d-none d-md-block"/>
+                <hr className="sidebar-divider my-0"/>
+                
+                <li className="nav-item">
+                    <Nav.Link className="nav-link" href="../quizList">Take a quiz</Nav.Link>
+                </li>
+                <hr className="sidebar-divider my-0"/>
+                <li className="nav-item">
+                    <Nav.Link href="../createQuiz">Make a quiz</Nav.Link>  
+                </li>
+                <hr className="sidebar-divider d-none d-md-block"/>
+                <hr className="sidebar-divider d-none d-md-block"/>
+
+                <div className="text-center d-none d-md-inline">
+                <li className="nav-item">
+                    <Nav.Link onClick={() => logout()} href="../login"><IoIosLogOut size={32} style={{color: '#fff'}}/></Nav.Link>  
+                </li>
+                
+                
+                
+                </div>
+            </ul>
+
         )
     } 
     return (
-        <Col>
-            <Navbar bg='info'>
-                <Navbar.Brand> Quiz </Navbar.Brand>
-                <Button className='right' variant="outline-light" href="../createuser"> Create user </Button>
-            </Navbar>
-        </Col>
+        <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled">
+        <li className="nav-item">
+            <Navbar.Brand className="sidebar-brand d-flex align-items-center justify-content-center"> Quiz </Navbar.Brand>
+        </li>
+
+        <hr className="sidebar-divider d-none d-md-block"/>
+        <hr className="sidebar-divider my-0"/>
+        <li className="nav-item">
+            <Nav.Link className="nav-link" href="../login">Login</Nav.Link>
+        </li>
+
+        <hr className="sidebar-divider my-0"/>
+        <li className="nav-item">
+            <Nav.Link className="nav-link" href="../createuser">Create user</Nav.Link>
+        </li>
+        <hr className="sidebar-divider d-none d-md-block"/>
+        <hr className="sidebar-divider my-0"/>
+    </ul>
+
     )
 }
 

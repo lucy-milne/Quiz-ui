@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Container, Card, Button, Row, Col} from 'react-bootstrap';
+import 'startbootstrap-sb-admin-2/css/sb-admin-2.css';
 
 class Question extends Component {
 
@@ -12,7 +13,7 @@ class Question extends Component {
             <Container>
                 <br />
                 <br />
-                <Card className='questionCard'>
+                <Card className='card border-left-info shadow py-2 col-xl-8 offset-2'>
                     <Card.Header as="h4">{this.props.question}</Card.Header>
                     <Card.Body>
                         <Row>

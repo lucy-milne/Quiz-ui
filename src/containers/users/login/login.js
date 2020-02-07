@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Layout from '../../../components/Layout/Layout';
-import {Form, Button} from 'react-bootstrap';
+import {Form, Button, Card} from 'react-bootstrap';
 import {login} from '../../../components/UserAuth';
+import 'startbootstrap-sb-admin-2/css/sb-admin-2.css';
+
 
 
 
@@ -51,12 +53,13 @@ class Login extends Component {
       return (
           <Layout>
             <br />
-            <h3> Login </h3>
-            <Form>
+            <br />
+            <Card className='card border-left-info shadow py-2 col-xl-8 offset-2'>
+                <h2 className='h2 mb-0 text-gray-800'>Login</h2>
                 <br />
                 <Form.Group controlId="formUsername">
                     <Form.Label>Username</Form.Label>
-                    <Form.Control placeholder="Enter username" onChange={(event) => this.updateUserName(event)}/>
+                    <Form.Control  placeholder="Enter username" onChange={(event) => this.updateUserName(event)}/>
                     <Form.Text className="text-danger"> {this.state.message} </Form.Text>
                 </Form.Group>
             
@@ -65,8 +68,9 @@ class Login extends Component {
                     <Form.Control type="password" placeholder="Password" onChange={(event) => this.updatePassword(event)} />   
                     <Form.Text className="text-danger"> {this.state.message} </Form.Text>
                 </Form.Group>
-                <Button variant="info" onClick={() => this.loginClicked()}> Login </Button>
-            </Form>
+                <Button className='btn btn-primary col-xl-2' onClick={() => this.loginClicked()}> Login </Button>
+                <br/>
+            </Card>
         </Layout>
       )
     }
