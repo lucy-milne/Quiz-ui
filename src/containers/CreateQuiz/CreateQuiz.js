@@ -209,7 +209,7 @@ class CreateQuiz extends Component {
 
               <Row>
                 <Col>
-                  <Button className='border-0' style={{backgroundColor: '#443FE0'}} onClick={() => this.addClicked()}> Add question </Button>
+                  <Button className='border-0' style={{backgroundColor: '#4e73df'}} onClick={() => this.addClicked()}> Add question </Button>
                 </Col>
                 <Col>
                   <Alert className={'alert'} variant='info'  show={this.state.showAdded}> Question added </Alert>   

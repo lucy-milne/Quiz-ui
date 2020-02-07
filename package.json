@@ -16,6 +16,7 @@
     "react-scripts": "3.3.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "startbootstrap": "0.0.1",
     "startbootstrap-sb-admin-2": "^4.0.7"
   },
   "scripts": {

@@ -27,7 +27,7 @@ const quiz = (props) => {
                         <Col> <b>{props.quiz.name}</b> </Col>
                         <Col> {props.quiz.username} </Col>
                         <Col>
-                            <Button className='btn border-0' style={{backgroundColor: '#443FE0'}} onClick={() => redirectToQuiz(props.quiz.id, props)}> <IoMdPlay size={25} style={{color: '#fff'}}/></Button>
+                            <Button className='btn border-0' style={{backgroundColor: '#4e73df'}} onClick={() => redirectToQuiz(props.quiz.id, props)}> <IoMdPlay size={25} style={{color: '#fff'}}/></Button>
                             <span>&nbsp;&nbsp;&nbsp;</span>
                             <Button className="btn bg-danger border-0 " onClick={() => redirectToDelete(props.quiz.id, props)} style={{display: checkDelete(props)}}><IoIosTrash size={25} style={{color: '#fff'}}/></Button>
                         </Col>
