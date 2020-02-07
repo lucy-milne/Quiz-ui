@@ -20,13 +20,20 @@ class CompleteQuiz extends Component {
         };
     }
 
+    async finishQuiz() {
+        const result = await fetch('https://dog.ceo/api/breeds/image/random')
+        const data = await result.json()
+        this.setState({image: data.message})
+        this.setState({show: true})
+    }
+
     answered = (answer, chosen) => {
         if (answer === chosen) {
             this.setState({score: (this.state.score + 1)})
         }
         this.setState({i: this.state.i + 1})
         if (this.state.i === this.state.data.length - 1) {
-            this.setState({show: true})
+            this.finishQuiz()
         }
 
     }
@@ -40,19 +47,11 @@ class CompleteQuiz extends Component {
         return a;
     }
 
-    finishQuiz() {
-        this.setState({show: true})
-    }
-
     closeQuiz() {
         this.props.history.push('/quizList');
     }
 
     async componentDidMount() {
-        const result = await fetch('https://dog.ceo/api/breeds/image/random')
-        const data = await result.json()
-        this.setState({image: data.message})
-
         let id = this.props.match.params.id;
         const res = await fetch('http://localhost:5000/api/question/' + id)
         if (!res.ok) {
