@@ -27,7 +27,7 @@ const navigation = () => {
 
                 <div className="text-center d-none d-md-inline">
                 <li className="nav-item">
-                    <Nav.Link onClick={() => logout()} href="../login"><IoIosLogOut size={32} style={{color: '#fff'}}/></Nav.Link>  
+                    <Nav.Link onClick={() => logout()} href="../login"><IoIosLogOut size={28} style={{color: '#fff'}}/></Nav.Link>  
                 </li>
                 
                 
