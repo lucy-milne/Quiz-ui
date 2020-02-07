@@ -3,6 +3,7 @@ import './Createquiz.css';
 import Layout from '../../components/Layout/Layout';
 import {Form, Button, Row, Col, Alert, Card} from 'react-bootstrap';
 import {checkAuth, getUser} from '../../components/UserAuth'
+import { IoIosCheckmark,  IoIosClose} from "react-icons/io";
 
 
 class CreateQuiz extends Component {
@@ -171,7 +172,7 @@ class CreateQuiz extends Component {
       return (
           <Layout>
             <br />
-            <Card className='card border-left-info shadow py-2 col-xl-8 offset-2'>
+            <Card className='card border-left-primary shadow py-2 col-xl-8 offset-2'>
               <br />
               <Form.Group controlId="name">
                 <Form.Label > Quiz Name </Form.Label>
@@ -208,16 +209,16 @@ class CreateQuiz extends Component {
 
               <Row>
                 <Col>
-                  <Button variant="primary" onClick={() => this.addClicked()}> Add Question </Button>
+                  <Button className='border-0' style={{backgroundColor: '#443FE0'}} onClick={() => this.addClicked()}> Add question </Button>
                 </Col>
                 <Col>
                   <Alert className={'alert'} variant='info'  show={this.state.showAdded}> Question added </Alert>   
                   <Alert className={'alert'} variant='danger'  show={this.state.showAlert}> Add a question </Alert>                     
                 </Col>
                 < Col align='right'> 
-                  <Button variant='success' onClick={() => this.createClicked()}> Create Quiz </Button>
+                  <Button variant='success' onClick={() => this.createClicked()}> <IoIosCheckmark size={28} style={{color: '#fff'}}/> </Button>
                   <span>&nbsp;&nbsp;&nbsp;</span>
-                  <Button variant='danger' onClick={() => this.cancel()}> Cancel </Button>
+                  <Button variant='danger' onClick={() => this.cancel()}> <IoIosClose size={28} style={{color: '#fff'}}/> </Button>
                 </Col>
               </Row>
               <br />

@@ -74,7 +74,7 @@ s
         <Layout>
             <br />
             <br />
-            <Card className='card border-left-info shadow py-2 col-xl-8 offset-2'>
+            <Card className='card border-left-primary shadow py-2 col-xl-8 offset-2'>
                 <h2 className='h2 mb-0 text-gray-800'> Create User </h2>
                 <br />
 
@@ -95,7 +95,7 @@ s
                 </Form.Group>
                 <Row>
                     <span>&nbsp;&nbsp;&nbsp;</span>
-                    <Button className='btn btn-primary btn-icon-split col-xl-2' onClick={() => this.CreateUser()}> Create </Button>
+                    <Button className='btn border-0 col-xl-2' style={{backgroundColor: '#443FE0'}} onClick={() => this.CreateUser()}> Create </Button>
 
                 </Row>
                 <br />

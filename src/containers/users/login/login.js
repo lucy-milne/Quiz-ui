@@ -54,7 +54,7 @@ class Login extends Component {
           <Layout>
             <br />
             <br />
-            <Card className='card border-left-info shadow py-2 col-xl-8 offset-2'>
+            <Card className='card border-left-primary shadow py-2 col-xl-8 offset-2'>
                 <h2 className='h2 mb-0 text-gray-800'>Login</h2>
                 <br />
                 <Form.Group controlId="formUsername">
@@ -68,7 +68,7 @@ class Login extends Component {
                     <Form.Control type="password" placeholder="Password" onChange={(event) => this.updatePassword(event)} />   
                     <Form.Text className="text-danger"> {this.state.message} </Form.Text>
                 </Form.Group>
-                <Button className='btn btn-primary col-xl-2' onClick={() => this.loginClicked()}> Login </Button>
+                <Button className='btn border-0 col-xl-2' style={{backgroundColor: '#443FE0'}} onClick={() => this.loginClicked()}> Login </Button>
                 <br/>
             </Card>
         </Layout>

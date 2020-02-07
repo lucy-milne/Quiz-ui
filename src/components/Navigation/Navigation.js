@@ -9,7 +9,7 @@ const navigation = () => {
         return (   
             <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled">
                 <li className="nav-item">
-                    <div className="sidebar-brand d-flex align-items-center justify-content-center"> Quiz </div>
+                    <div className="sidebar-brand  "> Quiz </div>
                 </li>
                 
                 <hr className="sidebar-divider d-none d-md-block"/>

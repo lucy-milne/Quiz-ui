@@ -13,7 +13,7 @@ class Question extends Component {
             <Container>
                 <br />
                 <br />
-                <Card className='card border-left-info shadow py-2 col-xl-8 offset-2'>
+                <Card className='card border-left-primary shadow py-2 col-xl-8 offset-2'>
                     <Card.Header as="h4">{this.props.question}</Card.Header>
                     <Card.Body>
                         <Row>
