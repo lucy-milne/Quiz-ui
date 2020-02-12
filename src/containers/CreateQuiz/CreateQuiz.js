@@ -220,8 +220,9 @@ class CreateQuiz extends Component {
                   <span>&nbsp;&nbsp;&nbsp;</span>
                   <Button variant='danger' onClick={() => this.cancel()}> <IoIosClose size={28} style={{color: '#fff'}}/> </Button>
                 </Col>
+                <hr style={{'height': '30px'}}/>
               </Row>
-              <br />
+
             </Card>
           </Layout>
       )
